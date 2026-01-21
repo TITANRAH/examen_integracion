@@ -36,6 +36,7 @@ Sistema contable expuesto mediante **servicios SOAP**.
 - **Puerto por defecto:** 5001
 - **WSDL:** `http://localhost:5001/?wsdl`
 - **Plataforma:** Solo Windows
+- **Requisito:** .NET Framework 4.8.1
 
 Para ejecutar el sistema:
 
@@ -81,7 +82,7 @@ dotnet SistemaAgendamientoClases.dll <puerto>
 
 ## Sistema de Control de Acceso (REST)
 
-Sistema encargado de la **gestión de usuarios y control de acceso**, expuesto mediante una **API REST**.
+Sistema encargado de la **gestión de usuarios y control de acceso**, expuesto mediante una **API REST**. Requiere .NET 10 instalado.
 
 Para ejecutar en Linux:
 
