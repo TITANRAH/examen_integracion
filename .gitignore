@@ -1,0 +1,153 @@
+# ============================================
+# .NET / C# / Visual Studio
+# ============================================
+
+## Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+[Ww][Ii][Nn]32/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+bld/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+
+## Visual Studio cache/options
+.vs/
+.vscode/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+## Build results
+*.dll
+*.exe
+*.pdb
+*.cache
+*.nlp
+*.deps.json
+*.runtimeconfig.json
+*.staticwebassets.endpoints.json
+
+## NuGet Packages
+*.nupkg
+*.snupkg
+**/packages/*
+!**/packages/build/
+*.nuget.props
+*.nuget.targets
+
+## .NET Core
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# ============================================
+# Java / Gradle
+# ============================================
+
+## Compiled class files
+*.class
+
+## Gradle
+.gradle/
+build/
+!gradle/wrapper/gradle-wrapper.jar
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+## Maven
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+.mvn/wrapper/maven-wrapper.jar
+
+## IntelliJ IDEA
+.idea/
+*.iws
+*.iml
+*.ipr
+out/
+
+## Eclipse
+.classpath
+.project
+.settings/
+bin/
+
+# ============================================
+# ActiveMQ Broker
+# ============================================
+
+## ActiveMQ data and logs
+activemq-broker/broker-aukan/data/
+activemq-broker/broker-aukan/logs/
+activemq-broker/broker-aukan/tmp/
+
+# ============================================
+# Sistema Operativo
+# ============================================
+
+## macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+## Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+*.stackdump
+[Dd]esktop.ini
+$RECYCLE.BIN/
+
+## Linux
+*~
+.fuse_hidden*
+.directory
+.Trash-*
+.nfs*
+
+# ============================================
+# Archivos temporales y logs
+# ============================================
+
+*.tmp
+*.temp
+*.log
+*.swp
+*.swo
+*~
+
+# ============================================
+# Archivos de configuración local
+# ============================================
+
+appsettings.Development.json
+appsettings.Local.json
+*.local.json
+
+# ============================================
+# Archivos de certificados y claves
+# ============================================
+
+*.pfx
+*.key
+*.pem
+*.crt
+*.cer

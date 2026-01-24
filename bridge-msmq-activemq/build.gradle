@@ -1,0 +1,43 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+group = 'cl.insi.aukan'
+version = '1.0.0'
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // ActiveMQ Artemis Client (incluye javax.jms)
+    implementation 'org.apache.activemq:artemis-jms-client-all:2.31.2'
+
+    // Logging
+    implementation 'org.slf4j:slf4j-api:2.0.9'
+    runtimeOnly 'ch.qos.logback:logback-classic:1.4.11'
+}
+
+application {
+    mainClass = 'cl.insi.aukan.bridge.BridgeApplication'
+}
+
+jar {
+    manifest {
+        attributes(
+            'Main-Class': 'cl.insi.aukan.bridge.BridgeApplication'
+        )
+    }
+    // Crear JAR con dependencias incluidas (fat JAR)
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+}

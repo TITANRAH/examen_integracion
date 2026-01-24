@@ -1,0 +1,11 @@
+{
+  "origen": "sucursal",
+  "sucursalId": "001",
+  "rut": "15111222-2",
+  "monto": 15000,
+  "formaPago": "TC",
+  "fecha": "2026-01-20T00:00:00",
+  "codigoAutorizacion": "AUTH001",
+  "tarjeta": "VISA",
+  "timestampProcesamiento": "2026-01-24T14:25:00"
+}
