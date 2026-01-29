@@ -5,10 +5,6 @@ using TranslatorJson.Models;
 
 namespace TranslatorJson.Services
 {
-    /// <summary>
-    /// Consumidor de mensajes MSMQ
-    /// Lee mensajes JSON de la cola de origen
-    /// </summary>
     public class MsmqConsumer : IDisposable
     {
         private readonly MessageQueue _queue;
@@ -33,10 +29,6 @@ namespace TranslatorJson.Services
             Console.WriteLine(string.Format("Conectado a cola origen: {0}", queuePath));
         }
 
-        /// <summary>
-        /// Lee y deserializa un mensaje JSON de MSMQ
-        /// Retorna null si no hay mensajes
-        /// </summary>
         public PagoWeb LeerPago()
         {
             try

@@ -4,20 +4,6 @@ import cl.insi.aukan.adapter.controlacceso.client.ControlAccesoRestClient;
 import cl.insi.aukan.adapter.controlacceso.handler.EstadoMessageHandler;
 import cl.insi.aukan.adapter.controlacceso.jms.JmsEstadoConsumer;
 
-/**
- * Adapter Control de Acceso
- *
- * Patrón EIP: Channel Adapter
- *
- * Responsabilidad:
- * - Consumir estados de cuenta desde ActiveMQ (tópico smi_estados)
- * - Determinar si cliente debe ser habilitado/deshabilitado
- * - Invocar API REST del Sistema de Control de Acceso
- *
- * Lógica:
- * - saldo <= 0 → HABILITAR
- * - saldo > 0  → DESHABILITAR
- */
 public class ControlAccesoAdapterApplication {
 
     private static final String ACTIVEMQ_URL = "tcp://localhost:61616";
@@ -27,7 +13,6 @@ public class ControlAccesoAdapterApplication {
 
     public static void main(String[] args) {
         try {
-            // Crear componentes
             ControlAccesoRestClient restClient = new ControlAccesoRestClient(CONTROL_ACCESO_URL);
             EstadoMessageHandler handler = new EstadoMessageHandler(restClient);
             JmsEstadoConsumer consumer = new JmsEstadoConsumer(
@@ -36,8 +21,6 @@ public class ControlAccesoAdapterApplication {
                     SUBSCRIPTION_NAME,
                     handler
             );
-
-            // Iniciar consumidor
             consumer.start();
 
         } catch (Exception e) {

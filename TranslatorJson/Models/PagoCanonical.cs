@@ -2,10 +2,6 @@ using System;
 
 namespace TranslatorJson.Models
 {
-    /// <summary>
-    /// Modelo Canónico de Pago
-    /// Formato unificado que viaja por el canal central smi_pagos
-    /// </summary>
     public class PagoCanonical
     {
         public string origen { get; set; }

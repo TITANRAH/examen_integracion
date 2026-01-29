@@ -7,10 +7,6 @@ using AdapterContable.Models;
 
 namespace AdapterContable.Services
 {
-    /// <summary>
-    /// Cliente SOAP para Sistema Contable
-    /// Invoca el servicio RegistrarPago
-    /// </summary>
     public class ContabilidadSoapClient
     {
         private readonly string _serviceUrl;
@@ -21,12 +17,6 @@ namespace AdapterContable.Services
             Console.WriteLine(string.Format("Cliente SOAP configurado: {0}", serviceUrl));
         }
 
-        /// <summary>
-        /// Invoca el método SOAP RegistrarPago
-        /// </summary>
-        /// <param name="clienteId">RUT del cliente</param>
-        /// <param name="monto">Monto del pago</param>
-        /// <returns>Estado de cuenta del cliente</returns>
         public EstadoCuenta RegistrarPago(string clienteId, decimal monto)
         {
             try
@@ -107,11 +97,9 @@ namespace AdapterContable.Services
                     throw new Exception("No se encontro el elemento RegistrarPagoResponse en la respuesta SOAP");
                 }
 
-                // RegistrarPagoResult hereda el namespace de su padre (tempuri.org)
                 var registrarPagoResult = registrarPagoResponse.Element(tempNs + "RegistrarPagoResult");
                 if (registrarPagoResult == null)
                 {
-                    // Intentar sin namespace
                     registrarPagoResult = registrarPagoResponse.Element("RegistrarPagoResult");
                 }
                 if (registrarPagoResult == null)

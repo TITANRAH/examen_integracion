@@ -5,10 +5,6 @@ using System.Text;
 
 namespace WebPagosMock
 {
-    /// <summary>
-    /// Servidor REST Mock para WebPagos
-    /// Simula el endpoint GET /api/pagos/today
-    /// </summary>
     class Program
     {
         private const int DEFAULT_PORT = 5000;

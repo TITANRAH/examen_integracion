@@ -5,13 +5,6 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
 
-/**
- * Cliente SOAP para Sistema de Agendamiento
- *
- * Métodos SOAP:
- * - HabilitarUsuario(clienteId)
- * - DeshabilitarUsuario(clienteId)
- */
 public class AgendamientoSoapClient {
     private final String soapUrl;
 
@@ -19,18 +12,12 @@ public class AgendamientoSoapClient {
         this.soapUrl = soapUrl;
     }
 
-    /**
-     * Habilitar usuario en el sistema de agendamiento
-     */
     public void habilitarUsuario(String clienteId) throws Exception {
         String soapRequest = buildSoapRequest("HabilitarUsuario", clienteId);
         invokeSoap(soapRequest);
         System.out.println("    ✓ Usuario habilitado en agendamiento: " + clienteId);
     }
 
-    /**
-     * Deshabilitar usuario en el sistema de agendamiento
-     */
     public void deshabilitarUsuario(String clienteId) throws Exception {
         String soapRequest = buildSoapRequest("DeshabilitarUsuario", clienteId);
         invokeSoap(soapRequest);

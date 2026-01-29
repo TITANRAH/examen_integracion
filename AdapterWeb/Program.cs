@@ -3,18 +3,6 @@ using AdapterWeb.Services;
 
 namespace AdapterWeb
 {
-    /// <summary>
-    /// Adapter Web - Actividad 3
-    /// Patrón EIP: Channel Adapter
-    ///
-    /// Responsabilidad:
-    /// - Consumir API REST de WebPagos (GET /api/pagos/today)
-    /// - Extraer cada pago individual del JSON
-    /// - Publicar cada pago en cola MSMQ smi_web_pagos como JSON
-    ///
-    /// Alumno: Sergio Miranda
-    /// Prefijo: smi
-    /// </summary>
     class Program
     {
         private const string QUEUE_PATH = @".\Private$\smi_web_pagos";

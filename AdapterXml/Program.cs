@@ -5,21 +5,8 @@ using AdapterXml.Services;
 
 namespace AdapterXml
 {
-    /// <summary>
-    /// Adapter XML - Actividad 2
-    /// Patrón EIP: Channel Adapter
-    ///
-    /// Responsabilidad:
-    /// - Leer archivos XML de sucursales (suc_XXX-pagos-fecha.xml)
-    /// - Extraer cada pago individual
-    /// - Publicar cada pago en cola MSMQ smi_suc_pagos SIN transformar
-    ///
-    /// Alumno: Sergio Miranda
-    /// Prefijo: smi
-    /// </summary>
     class Program
     {
-        // Configuración
         private const string QUEUE_PATH = @".\Private$\smi_suc_pagos";
         private const string DEFAULT_XML_DIRECTORY = @"..\..\..\..\XMLPagos";
 
@@ -29,7 +16,6 @@ namespace AdapterXml
 
             try
             {
-                // Determinar directorio de archivos XML
                 string xmlDirectory = args.Length > 0 ? args[0] : DEFAULT_XML_DIRECTORY;
                 xmlDirectory = Path.GetFullPath(xmlDirectory);
 
@@ -43,7 +29,6 @@ namespace AdapterXml
                 Console.WriteLine(string.Format("📁 Directorio de archivos XML: {0}", xmlDirectory));
                 Console.WriteLine();
 
-                // Buscar archivos XML de sucursales
                 var archivosXml = Directory.GetFiles(xmlDirectory, "suc_*-pagos-*.xml")
                                           .OrderBy(f => f)
                                           .ToList();
@@ -61,7 +46,6 @@ namespace AdapterXml
                 }
                 Console.WriteLine();
 
-                // Procesar archivos
                 ProcesarArchivos(archivosXml);
 
                 Console.WriteLine();
@@ -78,7 +62,6 @@ namespace AdapterXml
                 Environment.Exit(1);
             }
 
-            // Mantener consola abierta en modo debug
             if (System.Diagnostics.Debugger.IsAttached)
             {
                 Console.WriteLine();
@@ -100,8 +83,6 @@ namespace AdapterXml
                     try
                     {
                         Console.WriteLine("────────────────────────────────────────");
-
-                        // Leer archivo XML
                         var pagos = xmlReader.LeerArchivoPagos(archivo);
                         var sucursalId = xmlReader.ExtraerIdSucursal(Path.GetFileName(archivo));
 
@@ -111,7 +92,6 @@ namespace AdapterXml
                             continue;
                         }
 
-                        // Publicar cada pago individualmente
                         Console.WriteLine(string.Format("📤 Publicando {0} pago(s) en MSMQ...", pagos.ListaPagos.Count));
 
                         foreach (var pago in pagos.ListaPagos)
@@ -126,7 +106,6 @@ namespace AdapterXml
                     catch (Exception ex)
                     {
                         Console.WriteLine(string.Format("❌ Error procesando archivo {0}: {1}", Path.GetFileName(archivo), ex.Message));
-                        // Continuar con el siguiente archivo
                     }
                 }
 

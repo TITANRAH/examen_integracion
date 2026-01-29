@@ -3,18 +3,6 @@ using TranslatorJson.Services;
 
 namespace TranslatorJson
 {
-    /// <summary>
-    /// Translator JSON - Actividad 5
-    /// Patrón EIP: Message Translator
-    ///
-    /// Responsabilidad:
-    /// - Consumir mensajes JSON de cola smi_web_pagos
-    /// - Transformar JSON de WebPagos a formato Modelo Canónico JSON
-    /// - Publicar en cola smi_pagos
-    ///
-    /// Alumno: Sergio Miranda
-    /// Prefijo: smi
-    /// </summary>
     class Program
     {
         private const string QUEUE_ORIGEN = @".\Private$\smi_web_pagos";

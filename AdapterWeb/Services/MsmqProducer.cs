@@ -6,10 +6,6 @@ using AdapterWeb.Models;
 
 namespace AdapterWeb.Services
 {
-    /// <summary>
-    /// Productor de mensajes MSMQ.
-    /// Publica pagos JSON individuales en la cola smi_web_pagos
-    /// </summary>
     public class MsmqProducer : IDisposable
     {
         private readonly MessageQueue _queue;
@@ -34,9 +30,6 @@ namespace AdapterWeb.Services
             Console.WriteLine(string.Format("Conectado a cola MSMQ: {0}", queuePath));
         }
 
-        /// <summary>
-        /// Publica un pago individual en MSMQ como JSON
-        /// </summary>
         public void PublicarPago(PagoWeb pago)
         {
             try
@@ -61,9 +54,6 @@ namespace AdapterWeb.Services
             }
         }
 
-        /// <summary>
-        /// Obtiene el número de mensajes en la cola
-        /// </summary>
         public int ObtenerCantidadMensajes()
         {
             try

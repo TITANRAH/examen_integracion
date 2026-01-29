@@ -3,18 +3,6 @@ using TranslatorXml.Services;
 
 namespace TranslatorXml
 {
-    /// <summary>
-    /// Translator XML - Actividad 5
-    /// Patrón EIP: Message Translator
-    ///
-    /// Responsabilidad:
-    /// - Consumir mensajes XML de cola smi_suc_pagos
-    /// - Transformar XML a formato Modelo Canónico JSON
-    /// - Publicar en cola smi_pagos
-    ///
-    /// Alumno: Sergio Miranda
-    /// Prefijo: smi
-    /// </summary>
     class Program
     {
         private const string QUEUE_ORIGEN = @".\Private$\smi_suc_pagos";

@@ -5,12 +5,6 @@ import org.apache.activemq.artemis.jms.client.ActiveMQConnectionFactory;
 
 import javax.jms.*;
 
-/**
- * Consumidor JMS para tópico smi_estados
- *
- * Patrón EIP: Publish-Subscribe (Topic)
- * Suscripción durable: smi_estados.agendamiento
- */
 public class JmsEstadoConsumer {
     private final String activeMqUrl;
     private final String topicName;
@@ -43,11 +37,7 @@ public class JmsEstadoConsumer {
 
         Session session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
         Topic topic = session.createTopic(topicName);
-
-        // Suscripción durable
         MessageConsumer consumer = session.createDurableSubscriber(topic, subscriptionName);
-
-        // Listener asíncrono
         consumer.setMessageListener(message -> {
             if (message instanceof TextMessage) {
                 try {
@@ -62,7 +52,6 @@ public class JmsEstadoConsumer {
 
         System.out.println("✓ Consumidor iniciado. Presione Ctrl+C para detener.");
 
-        // Mantener la aplicación corriendo
         Object lock = new Object();
         synchronized (lock) {
             try {

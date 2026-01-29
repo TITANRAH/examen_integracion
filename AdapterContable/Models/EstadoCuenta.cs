@@ -2,9 +2,6 @@ using System;
 
 namespace AdapterContable.Models
 {
-    /// <summary>
-    /// Estado de cuenta del cliente (respuesta del servicio SOAP)
-    /// </summary>
     public class EstadoCuenta
     {
         public string clienteId { get; set; }
@@ -20,11 +17,6 @@ namespace AdapterContable.Models
             estado = "";
         }
 
-        /// <summary>
-        /// Determina si el cliente está habilitado según su saldo
-        /// Saldo <= 0 : Al día o adelantado (habilitado)
-        /// Saldo > 0 : Con deuda (deshabilitado)
-        /// </summary>
         public bool EstaHabilitado()
         {
             return saldo <= 0;

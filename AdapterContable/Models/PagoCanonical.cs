@@ -2,9 +2,6 @@ using System;
 
 namespace AdapterContable.Models
 {
-    /// <summary>
-    /// Modelo Canónico de Pago (recibido de smi_pagos)
-    /// </summary>
     public class PagoCanonical
     {
         public string origen { get; set; }

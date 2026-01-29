@@ -5,10 +5,6 @@ using AdapterContable.Models;
 
 namespace AdapterContable.Services
 {
-    /// <summary>
-    /// Consumidor de mensajes MSMQ
-    /// Lee mensajes JSON canónicos de la cola de origen
-    /// </summary>
     public class MsmqConsumer : IDisposable
     {
         private readonly MessageQueue _queue;
@@ -33,10 +29,6 @@ namespace AdapterContable.Services
             Console.WriteLine(string.Format("Conectado a cola origen: {0}", queuePath));
         }
 
-        /// <summary>
-        /// Lee y deserializa un mensaje JSON canónico de MSMQ
-        /// Retorna null si no hay mensajes
-        /// </summary>
         public PagoCanonical LeerPagoCanonical()
         {
             try

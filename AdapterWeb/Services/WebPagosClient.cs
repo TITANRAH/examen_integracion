@@ -6,10 +6,6 @@ using AdapterWeb.Models;
 
 namespace AdapterWeb.Services
 {
-    /// <summary>
-    /// Cliente para consumir API REST de WebPagos
-    /// Patrón: Channel Adapter - conecta API REST con sistema de mensajería
-    /// </summary>
     public class WebPagosClient
     {
         private readonly string _baseUrl;
@@ -21,10 +17,6 @@ namespace AdapterWeb.Services
             _jsonSerializer = new JavaScriptSerializer();
         }
 
-        /// <summary>
-        /// Obtiene los pagos del día desde el endpoint /api/pagos/today
-        /// </summary>
-        /// <returns>Lista de pagos del día</returns>
         public List<PagoWeb> ObtenerPagosDelDia()
         {
             string url = string.Format("{0}/api/pagos/today", _baseUrl);

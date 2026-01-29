@@ -5,10 +5,6 @@ using TranslatorJson.Models;
 
 namespace TranslatorJson.Services
 {
-    /// <summary>
-    /// Productor de mensajes MSMQ
-    /// Publica mensajes JSON canónicos en la cola destino
-    /// </summary>
     public class MsmqProducer : IDisposable
     {
         private readonly MessageQueue _queue;
@@ -33,9 +29,6 @@ namespace TranslatorJson.Services
             Console.WriteLine(string.Format("Conectado a cola destino: {0}", queuePath));
         }
 
-        /// <summary>
-        /// Publica un pago canónico en MSMQ como JSON
-        /// </summary>
         public void PublicarPagoCanonical(PagoCanonical pago)
         {
             try

@@ -5,10 +5,6 @@ using AdapterContable.Models;
 
 namespace AdapterContable.Services
 {
-    /// <summary>
-    /// Productor de mensajes MSMQ
-    /// Publica estados de cuenta JSON en la cola destino
-    /// </summary>
     public class MsmqProducer : IDisposable
     {
         private readonly MessageQueue _queue;
@@ -33,9 +29,6 @@ namespace AdapterContable.Services
             Console.WriteLine(string.Format("Conectado a cola destino: {0}", queuePath));
         }
 
-        /// <summary>
-        /// Publica un estado de cuenta en MSMQ como JSON
-        /// </summary>
         public void PublicarEstadoCuenta(EstadoCuenta estado)
         {
             try

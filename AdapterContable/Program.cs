@@ -3,19 +3,6 @@ using AdapterContable.Services;
 
 namespace AdapterContable
 {
-    /// <summary>
-    /// Adapter Contable - Actividad 6
-    /// Patrón EIP: Channel Adapter
-    ///
-    /// Responsabilidad:
-    /// - Consumir pagos canónicos de cola smi_pagos
-    /// - Invocar servicio SOAP RegistrarPago(clienteId, monto)
-    /// - Recibir estado de cuenta del cliente
-    /// - Publicar estado en cola smi_estados
-    ///
-    /// Alumno: Sergio Miranda
-    /// Prefijo: smi
-    /// </summary>
     class Program
     {
         private const string QUEUE_ORIGEN = @".\Private$\smi_pagos";
@@ -90,15 +77,11 @@ namespace AdapterContable
                     }
 
                     Console.WriteLine(string.Format("Leído: {0}", pagoCanonical));
-
-                    // Invocar servicio SOAP
                     Console.WriteLine(string.Format("  Invocando SOAP: RegistrarPago({0}, {1})", pagoCanonical.rut, pagoCanonical.monto));
 
                     var estadoCuenta = soapClient.RegistrarPago(pagoCanonical.rut, pagoCanonical.monto);
 
                     Console.WriteLine(string.Format("  Respuesta SOAP: {0}", estadoCuenta));
-
-                    // Publicar estado en MSMQ
                     producer.PublicarEstadoCuenta(estadoCuenta);
 
                     totalProcesados++;

@@ -1,8 +1,5 @@
 package cl.insi.aukan.adapter.controlacceso.model;
 
-/**
- * Modelo del mensaje de estado de cuenta (JSON)
- */
 public class EstadoCuenta {
     private EstadoCuentaData estadoCuenta;
 

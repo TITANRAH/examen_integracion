@@ -2,9 +2,6 @@ using System;
 
 namespace AdapterWeb.Models
 {
-    /// <summary>
-    /// Modelo de pago recibido desde API REST WebPagos
-    /// </summary>
     public class PagoWeb
     {
         public string rut { get; set; }

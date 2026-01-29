@@ -5,13 +5,6 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
-/**
- * Cliente REST para Sistema de Control de Acceso
- *
- * API:
- * - PATCH /api/users/{rut}
- * - Body: {"habilitado": true/false}
- */
 public class ControlAccesoRestClient {
     private final String baseUrl;
     private final HttpClient httpClient;
@@ -21,12 +14,6 @@ public class ControlAccesoRestClient {
         this.httpClient = HttpClient.newHttpClient();
     }
 
-    /**
-     * Actualizar estado de habilitación de un usuario
-     *
-     * @param rut       RUT del cliente (formato: 12345678-9)
-     * @param habilitado true para habilitar, false para deshabilitar
-     */
     public void actualizarUsuario(String rut, boolean habilitado) throws Exception {
         String url = baseUrl + "/api/users/" + rut;
         String jsonBody = "{\"habilitado\": " + habilitado + "}";

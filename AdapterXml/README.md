@@ -1,41 +1,4 @@
-# Adapter XML - Actividad 2
-
-**Patrón EIP:** Channel Adapter
-**Alumno:** Sergio Miranda
-**Prefijo:** `smi`
-
-## Descripción
-
-Componente que conecta archivos XML de sucursales con el sistema de mensajería MSMQ. Implementa el patrón **Channel Adapter** para integrar una fuente de datos externa (archivos) con la arquitectura de mensajería.
-
-## Responsabilidades
-
-1. ✅ Leer archivos XML de sucursales del directorio `XMLPagos/`
-2. ✅ Parsear estructura XML usando `System.Xml.Serialization`
-3. ✅ Extraer cada elemento `<Pago>` individualmente
-4. ✅ Publicar cada pago como mensaje XML en cola MSMQ `smi_suc_pagos`
-5. ✅ **NO transforma** el formato (responsabilidad del Translator en Actividad 5)
-
-## Estructura del Proyecto
-
-```
-AdapterXml/
-├── AdapterXml.csproj       # Proyecto .NET Framework 4.8.1
-├── App.config              # Configuración
-├── Program.cs              # Punto de entrada
-├── Models/
-│   ├── Pago.cs            # Modelo XML para <Pago>
-│   └── Pagos.cs           # Modelo XML para <Pagos>
-└── Services/
-    ├── XmlFileReader.cs   # Lectura y deserialización XML
-    └── MsmqProducer.cs    # Publicación en MSMQ
-```
-
-## Tecnologías
-
-- **.NET Framework 4.8.1**
-- **System.Messaging** (MSMQ)
-- **System.Xml.Serialization** (JAXB equivalente)
+# Adapter XML
 
 ## Compilación
 
@@ -145,12 +108,3 @@ Verificar mensajes en cola MSMQ:
 Get-MsmqQueue -Name "smi_suc_pagos"
 ```
 
-## Patrones EIP Implementados
-
-- **Channel Adapter:** Conecta fuente externa (archivos XML) con messaging system (MSMQ)
-- **Point-to-Point Channel:** Cola MSMQ garantiza procesamiento por un solo consumidor
-- **Message:** Cada pago XML es un mensaje independiente
-
-## Próximo Componente
-
-**Translator XML (Actividad 5):** Consumirá mensajes de `smi_suc_pagos` y transformará al formato canónico JSON.

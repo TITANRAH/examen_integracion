@@ -6,10 +6,6 @@ using TranslatorXml.Models;
 
 namespace TranslatorXml.Services
 {
-    /// <summary>
-    /// Consumidor de mensajes MSMQ
-    /// Lee mensajes XML de la cola de origen
-    /// </summary>
     public class MsmqConsumer : IDisposable
     {
         private readonly MessageQueue _queue;
@@ -36,10 +32,6 @@ namespace TranslatorXml.Services
             Console.WriteLine(string.Format("Conectado a cola origen: {0}", queuePath));
         }
 
-        /// <summary>
-        /// Lee y deserializa un mensaje XML de MSMQ
-        /// Retorna null si no hay mensajes
-        /// </summary>
         public Pago LeerPago(out string metadatos)
         {
             metadatos = "";
